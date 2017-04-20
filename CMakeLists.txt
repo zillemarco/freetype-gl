@@ -176,5 +176,5 @@ if(freetype-gl_BUILD_TESTS)
     add_subdirectory(tests)
 endif(freetype-gl_BUILD_TESTS)
 
-install(FILES "${FREETYPE_GL_HDR}" DESTINATION "${CMAKE_INSTALL_PREFIX}/include")
-install(TARGETS freetype-gl ARCHIVE DESTINATION "${CMAKE_INSTALL_PREFIX}/lib")
+INSTALL_FILES(/include ${FREETYPE_GL_HDR})
+INSTALL_TARGETS(/lib freetype-gl)
