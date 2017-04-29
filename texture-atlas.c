@@ -36,6 +36,7 @@ texture_atlas_new( const size_t width,
     self->height = height;
     self->depth = depth;
     self->id = 0;
+    self->dirty = 0;
 
     vector_push_back( self->nodes, &node );
     self->data = (unsigned char *)
@@ -272,4 +273,14 @@ texture_atlas_clear( texture_atlas_t * self )
 
     vector_push_back( self->nodes, &node );
     memset( self->data, 0, self->width*self->height*self->depth );
+}
+
+// --------------------------------------------------- texture_atlas_upload ---
+void
+texture_atlas_upload( texture_atlas_t * self )
+{
+    assert( self );
+    assert( self->data );
+
+	self->dirty = 1;
 }

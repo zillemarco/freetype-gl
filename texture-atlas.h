@@ -110,6 +110,11 @@ typedef struct texture_atlas_t
      */
     unsigned char * data;
 
+    /**
+     * Set to one when the texture atlas data has been changed so the texture needs to be re-uploaded
+     */
+    int dirty;
+
 } texture_atlas_t;
 
 
@@ -138,6 +143,14 @@ typedef struct texture_atlas_t
   void
   texture_atlas_delete( texture_atlas_t * self );
 
+/**
+ *  Upload atlas to video memory.
+ *
+ *  @param self a texture atlas structure
+ *
+ */
+  void
+  texture_atlas_upload( texture_atlas_t * self );
 
 /**
  *  Allocate a new region in the atlas.

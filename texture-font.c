@@ -638,6 +638,7 @@ cleanup_stroker:
     if( self->rendermode != RENDER_NORMAL && self->rendermode != RENDER_SIGNED_DISTANCE_FIELD )
         FT_Done_Glyph( ft_glyph );
 
+    texture_atlas_upload(self->atlas);
     texture_font_generate_kerning( self, &library, &face );
 
     FT_Done_Face( face );
